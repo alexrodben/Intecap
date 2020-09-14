@@ -9,11 +9,11 @@ package Modelo.DAO;
  *
  * @author DIVISA
  */
-public class Tareas implements DAO{
+public class TareasDAO implements DAO{
     private final String tabla = "tbl_tareas";
     private String id,nombre,descripcion,fecha,usuario_id,estado_id;
 
-    public Tareas(String id, String nombre, String descripcion, String fecha, String usuario_id, String estado_id) {
+    public TareasDAO(String id, String nombre, String descripcion, String fecha, String usuario_id, String estado_id) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -22,7 +22,7 @@ public class Tareas implements DAO{
         this.estado_id = estado_id;
     }
 
-    public Tareas() {
+    public TareasDAO() {
     }
 
     public String getId() {
@@ -105,4 +105,9 @@ public class Tareas implements DAO{
         return 6;
     }
     
+    @Override
+    public String selectSql(String condicion) {
+        if(condicion == null) return "SELECT * FROM " + tabla;
+        else return "SELECT * FROM " + tabla + " WHERE " + condicion;
+    }
 }

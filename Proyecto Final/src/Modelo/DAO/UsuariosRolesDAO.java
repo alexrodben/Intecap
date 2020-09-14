@@ -9,17 +9,17 @@ package Modelo.DAO;
  *
  * @author DIVISA
  */
-public class UsuariosRoles implements DAO{
+public class UsuariosRolesDAO implements DAO{
     private final String tabla = "tbl_uuarios_roles";
     private String id,descripcion,atributos;
 
-    public UsuariosRoles(String id, String descripcion, String atributos) {
+    public UsuariosRolesDAO(String id, String descripcion, String atributos) {
         this.id = id;
         this.descripcion = descripcion;
         this.atributos = atributos;
     }
 
-    public UsuariosRoles() {
+    public UsuariosRolesDAO() {
     }
 
     public String getId() {
@@ -68,9 +68,16 @@ public class UsuariosRoles implements DAO{
 
     @Override
     public void loadData(String[] data) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int i = 0;
+        this.id = data[i]; i++;
+        this.descripcion = data[i]; i++;
+        this.atributos = data[i]; i++;
     }
-    
-    
+
+    @Override
+    public String selectSql(String condicion) {
+        if(condicion == null) return "SELECT * FROM " + tabla;
+        else return "SELECT * FROM " + tabla + " WHERE " + condicion;
+    }
     
 }

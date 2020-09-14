@@ -9,11 +9,11 @@ package Modelo.DAO;
  *
  * @author DIVISA
  */
-public class Usuarios implements DAO{
+public class UsuariosDAO implements DAO{
     private String tabla = "tbl_usuarios";
     private String id,roles_id,username,password,intentos, nombre;
 
-    public Usuarios(String id, String roles_id, String username, String password, String intentos, String nombre) {
+    public UsuariosDAO(String id, String roles_id, String username, String password, String intentos, String nombre) {
         this.id = id;
         this.roles_id = roles_id;
         this.username = username;
@@ -22,7 +22,7 @@ public class Usuarios implements DAO{
         this.nombre = nombre;
     }
 
-    public Usuarios() {
+    public UsuariosDAO() {
     }
 
     public String getId() {
@@ -102,5 +102,12 @@ public class Usuarios implements DAO{
     @Override
     public int getColumnas(){
         return 6;
-    }    
+    }
+    
+    @Override
+    public String selectSql(String condicion) {
+        if(condicion == null) return "SELECT * FROM " + tabla;
+        else return "SELECT * FROM " + tabla + " WHERE " + condicion;
+    }
+
 }

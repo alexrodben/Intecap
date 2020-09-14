@@ -5,6 +5,9 @@
  */
 package App;
 
+import Controlador.LoginControlador;
+import Vista.LoginVista;
+
 /**
  *
  * @author DIVISA
@@ -15,7 +18,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        LoginVista vista = new LoginVista();
+        LoginControlador controlador = new LoginControlador(vista);
+        vista.setVisible(true);
+        controlador = null;
+        vista = null;
     }
     
 }
