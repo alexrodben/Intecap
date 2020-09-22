@@ -9,17 +9,16 @@ package Modelo.DAO;
  *
  * @author DIVISA
  */
-public class UsuariosRolesDAO implements DAO{
+public class UsuariosEstadoDAO implements DAO{
     private final String tabla = "tbl_uuarios_roles";
-    private String id,descripcion,atributos;
+    private String id,descripcion;
 
-    public UsuariosRolesDAO(String id, String descripcion, String atributos) {
+    public UsuariosEstadoDAO(String id, String descripcion) {
         this.id = id;
         this.descripcion = descripcion;
-        this.atributos = atributos;
     }
 
-    public UsuariosRolesDAO() {
+    public UsuariosEstadoDAO() {
     }
 
     public String getId() {
@@ -38,32 +37,24 @@ public class UsuariosRolesDAO implements DAO{
         this.descripcion = descripcion;
     }
 
-    public String getAtributos() {
-        return atributos;
-    }
-
-    public void setAtributos(String atributos) {
-        this.atributos = atributos;
-    }
-
     @Override
     public String toString() {
-        return "UsuariosRoles{" + "id=" + id + ", descripcion=" + descripcion + ", atributos=" + atributos + '}';
+        return "UsuariosRoles{" + "id=" + id + ", descripcion=" + descripcion + ", =" + '}';
     }
 
     @Override
     public String insertSql() {
-        return "INSERT INTO " + tabla + " (id, descripcion, atributos) VALUES (" + id + ", '" + descripcion + "', '" + atributos + "')";
+        return "INSERT INTO " + tabla + " (id, descripcion) VALUES (" + id + ", '" + descripcion + "')";
     }
 
     @Override
     public String updateSql() {
-        return "UPDATE " + tabla + " SET id=" + id + ", descripcion='" + descripcion + "', atributos='" + atributos + "' WHERE";
+        return "UPDATE " + tabla + " SET id=" + id + ", descripcion='" + descripcion + "' WHERE";
     }
 
     @Override
     public int getColumnas() {
-        return 3;
+        return 2;
     }
 
     @Override
@@ -71,7 +62,6 @@ public class UsuariosRolesDAO implements DAO{
         int i = 0;
         this.id = data[i]; i++;
         this.descripcion = data[i]; i++;
-        this.atributos = data[i]; i++;
     }
 
     @Override

@@ -67,6 +67,7 @@ public class Connect{
 
     //----------------------Metodo para Obtener los datos de la Base de Datos
     public ResultSet obtener (String sql){
+        System.out.println(sql);
         try {
             disconnect();
             connect();

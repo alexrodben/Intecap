@@ -11,11 +11,11 @@ package Modelo.DAO;
  */
 public class UsuariosDAO implements DAO{
     private String tabla = "tbl_usuarios";
-    private String id,roles_id,username,password,intentos, nombre;
+    private String id,estado_id,username,password,intentos, nombre;
 
-    public UsuariosDAO(String id, String roles_id, String username, String password, String intentos, String nombre) {
+    public UsuariosDAO(String id, String estado_id, String username, String password, String intentos, String nombre) {
         this.id = id;
-        this.roles_id = roles_id;
+        this.estado_id = estado_id;
         this.username = username;
         this.password = password;
         this.intentos = intentos;
@@ -33,12 +33,12 @@ public class UsuariosDAO implements DAO{
         this.id = id;
     }
 
-    public String getRoles_id() {
-        return roles_id;
+    public String getEstado_id() {
+        return estado_id;
     }
 
-    public void setRoles_id(String roles_id) {
-        this.roles_id = roles_id;
+    public void setEstado_id(String estado_id) {
+        this.estado_id = estado_id;
     }
 
     public String getUsername() {
@@ -75,24 +75,24 @@ public class UsuariosDAO implements DAO{
 
     @Override
     public String toString() {
-        return "Usuarios{" + "id=" + id + ", roles_id=" + roles_id + ", username=" + username + ", password=" + password + ", intentos=" + intentos + ", nombre=" + nombre + '}';
+        return "Usuarios{" + "id=" + id + ", estado_id=" + estado_id + ", username=" + username + ", password=" + password + ", intentos=" + intentos + ", nombre=" + nombre + '}';
     }
 
     @Override
     public String insertSql() {
-        return "INSERT INTO " + tabla + " (id, roles_id, username, password, intentos, nombre) VALUES (" + id + ", '" + roles_id + "', '" + username + "', '" + password + "', '" + intentos + "', '" + nombre + "')";
+        return "INSERT INTO " + tabla + " (id, estado_id, username, password, intentos, nombre) VALUES (" + id + ", '" + estado_id + "', '" + username + "', '" + password + "', '" + intentos + "', '" + nombre + "')";
     }
 
     @Override
     public String updateSql() {
-        return "UPDATE " + tabla + " SET id='" + id + "', roles_id='" + roles_id + "', username='" + username + "', password='" + password + "', intentos='" + intentos + "', nombre='" + nombre + "' WHERE";
+        return "UPDATE " + tabla + " SET id='" + id + "', estado_id='" + estado_id + "', username='" + username + "', password='" + password + "', intentos='" + intentos + "', nombre='" + nombre + "' WHERE";
     }
 
     @Override
     public void loadData(String[] data) {
         int i = 0;
         this.id = data[i]; i++;
-        this.roles_id = data[i]; i++;
+        this.estado_id = data[i]; i++;
         this.username = data[i]; i++;
         this.password = data[i]; i++;
         this.intentos = data[i]; i++;

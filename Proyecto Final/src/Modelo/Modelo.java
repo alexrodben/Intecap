@@ -7,7 +7,7 @@ package Modelo;
 
 import Modelo.DAO.TareasDAO;
 import Modelo.DAO.UsuariosDAO;
-import Modelo.DAO.UsuariosRolesDAO;
+import Modelo.DAO.UsuariosEstadoDAO;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -25,8 +25,9 @@ import javax.swing.table.DefaultTableModel;
 public class Modelo {
     private static final Logger LOG = Logger.getLogger(Modelo.class.getName());
     
-    protected Connect connect = new Connect();
-    protected UsuariosRolesDAO usuariosRoles;
+//    protected Connect connect = new Connect();
+    protected Connect connect = new Connect("108.167.143.239", "divisagt_tareas", "divisagt_root", "@Programador98");
+    protected UsuariosEstadoDAO usuariosRoles;
     protected UsuariosDAO usuarios;
     protected TareasDAO tareas;
     

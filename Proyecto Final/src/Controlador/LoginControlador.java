@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Modelo.DAO.UsuariosDAO;
 import Modelo.LoginModelo;
 import Vista.InicioVista;
 import Vista.LoginVista;
@@ -40,22 +41,32 @@ public class LoginControlador extends Controlador implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         if(usuario.getText().isEmpty() && String.valueOf(contraseña.getPassword()).isEmpty()){
             usuario.requestFocus();
-            JOptionPane.showMessageDialog(null, "No ha llenado todos los datos ", "Verificacion", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(vista, "No ha llenado todos los datos ", "Verificacion", JOptionPane.ERROR_MESSAGE);
         }else{
             if(modelo.verificar(usuario,contraseña)){
-                InicioVista vistaInicio = new InicioVista();
-                InicioControlador inicio = new InicioControlador(vistaInicio, modelo.getData());
-                vista.setVisible(false);
-                vistaInicio.setVisible(true);
-                vistaInicio = null;
-                inicio = null;
+                UsuariosDAO usuario = modelo.getData();
+                if(usuario.getEstado_id().equals("1")){
+                    InicioVista vistaInicio = new InicioVista();
+                    InicioControlador inicio = new InicioControlador(vistaInicio, usuario);
+                    vista.setVisible(false);
+                    vistaInicio.setVisible(true);
+                    vistaInicio = null;
+                    inicio = null;
+                }else{
+                    JOptionPane.showMessageDialog(vista, "Usuario no se encuentra Activo", "Verificacion", JOptionPane.ERROR_MESSAGE);
+                    limpiar();
+                }
             }else{
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña son inconrrectos ", "Verificacion", JOptionPane.ERROR_MESSAGE);
-                usuario.setText("");
-                contraseña.setText("");
-                usuario.requestFocus();
+                JOptionPane.showMessageDialog(vista, "Usuario o contraseña son inconrrectos ", "Verificacion", JOptionPane.ERROR_MESSAGE);
+                limpiar();
             }
         }
+    }
+    
+    private void limpiar(){
+        usuario.setText("");
+        contraseña.setText("");
+        usuario.requestFocus();
     }
     
 }
