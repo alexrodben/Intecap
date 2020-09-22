@@ -13,10 +13,10 @@ import java.util.logging.Logger;
  *
  * @author DIVISA
  */
-public class InicioModel extends Modelo{
+public class InicioModelo extends Modelo{
     private static final Logger LOG = Logger.getLogger(LoginModelo.class.getName());
 
-    public InicioModel() {
+    public InicioModelo() {
         usuarios = new UsuariosDAO();
         tareas = new TareasDAO();
     }

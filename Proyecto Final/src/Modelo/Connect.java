@@ -67,7 +67,6 @@ public class Connect{
 
     //----------------------Metodo para Obtener los datos de la Base de Datos
     public ResultSet obtener (String sql){
-        logger.info(sql);
         try {
             disconnect();
             connect();
@@ -86,6 +85,7 @@ public class Connect{
 
     //----------------------Metodos para consultas a la Base de Datos ( Insertar Borrar Modificar)
     public int consulta (String sql){
+        System.out.println(sql);
         int resultado = 0;
         try {
             connect();

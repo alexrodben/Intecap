@@ -13,6 +13,7 @@ public interface DAO {
     public String insertSql();
     public String updateSql();
     public String toString();
+    public String deleteSql(String id); 
     public String selectSql(String condicion);
     public int getColumnas();
     public void loadData(String[] data);

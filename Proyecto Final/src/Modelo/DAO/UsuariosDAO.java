@@ -109,5 +109,10 @@ public class UsuariosDAO implements DAO{
         if(condicion == null) return "SELECT * FROM " + tabla;
         else return "SELECT * FROM " + tabla + " WHERE " + condicion;
     }
+    
+    @Override
+    public String deleteSql(String id) {
+        return "DELETE FROM " + tabla + " WHERE id=" + id;
+    }
 
 }

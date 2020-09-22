@@ -11,6 +11,9 @@ import Modelo.DAO.UsuariosRolesDAO;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -32,7 +35,6 @@ public class Modelo {
             DefaultTableModel defaultTableModel = new DefaultTableModel(){
                @Override public boolean isCellEditable(int rowIndex, int columnIndex) { return editable;}
              };
-            System.out.println(sqlString);
             ResultSet resultSet = connect.obtener(sqlString);
             ResultSetMetaData metaDatos = resultSet.getMetaData();
             int numeroColumnas = metaDatos.getColumnCount();
@@ -52,6 +54,34 @@ public class Modelo {
             LOG.severe(e.getMessage());
         }
     }
-    
+   
+    public String convertDateSQL(String oldDate){
+        try {
+            SimpleDateFormat parseador = new SimpleDateFormat("dd/MM/yy");
+            SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = null;
+            try {date = parseador.parse(oldDate);}
+            catch(ParseException e) {
+                LOG.severe("error en fecha"+e.getMessage());}
+            return formateador.format(date);
+        } catch (Exception e) {
+            LOG.severe(e.getMessage());
+            return "";
+        }
+    }
+   
+    public String revertDateSQL(String oldDate){
+        try {
+            SimpleDateFormat parseador = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yy");
+            Date date = null;
+            try {date = parseador.parse(oldDate);}
+            catch(ParseException e) {System.err.println("error en fecha"+e.getMessage());}
+            return formateador.format(date);
+        } catch (Exception e) {
+            LOG.severe(e.getMessage());
+            return "";
+        }
+    }
     
 }

@@ -39,37 +39,9 @@ public class InicioVista extends javax.swing.JFrame {
         jButtonAgregar = new javax.swing.JButton();
         jButtonModificar = new javax.swing.JButton();
         jButtonEliminar = new javax.swing.JButton();
-        jButtonBuscar = new javax.swing.JButton();
-        jButtonLimpiar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuArchivo = new javax.swing.JMenu();
         jMenuItemSalir = new javax.swing.JMenuItem();
-        jMenuSistema = new javax.swing.JMenu();
-        jMenuGeneral = new javax.swing.JMenu();
-        jMenuItemFormaPago = new javax.swing.JMenuItem();
-        jMenuItemFamilias = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItemGrupoClientes = new javax.swing.JMenuItem();
-        jMenuItemGrupoVendedores = new javax.swing.JMenuItem();
-        jMenuItemSeries = new javax.swing.JMenuItem();
-        jMenuItemMonedas = new javax.swing.JMenuItem();
-        jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        jMenuItemUsuarios = new javax.swing.JMenuItem();
-        jMenuItemConfiguraciones = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItemClientes = new javax.swing.JMenuItem();
-        jMenuItemVendedores = new javax.swing.JMenuItem();
-        jMenuItemTransportes = new javax.swing.JMenuItem();
-        jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        jMenuItemPrecios = new javax.swing.JMenuItem();
-        jMenuItemProductos = new javax.swing.JMenuItem();
-        jSeparator4 = new javax.swing.JPopupMenu.Separator();
-        jMenuItemInformes = new javax.swing.JMenuItem();
-        jMenuFactiuracion = new javax.swing.JMenu();
-        jMenuItemFacturas = new javax.swing.JMenuItem();
-        jMenuItemFacturasAnuladas = new javax.swing.JMenuItem();
-        jMenuItemCobros = new javax.swing.JMenuItem();
-        jMenuItemRecibos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -149,7 +121,6 @@ public class InicioVista extends javax.swing.JFrame {
         jButtonAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/add.png"))); // NOI18N
         jButtonAgregar.setMnemonic('n');
         jButtonAgregar.setBorder(null);
-        jButtonAgregar.setEnabled(false);
 
         jButtonModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/edit.png"))); // NOI18N
         jButtonModificar.setMnemonic('e');
@@ -160,14 +131,6 @@ public class InicioVista extends javax.swing.JFrame {
         jButtonEliminar.setMnemonic('q');
         jButtonEliminar.setBorder(null);
         jButtonEliminar.setEnabled(false);
-
-        jButtonBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
-        jButtonBuscar.setMnemonic('q');
-        jButtonBuscar.setBorder(null);
-
-        jButtonLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cruzar.png"))); // NOI18N
-        jButtonLimpiar.setMnemonic('q');
-        jButtonLimpiar.setBorder(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -180,19 +143,13 @@ public class InicioVista extends javax.swing.JFrame {
                 .addComponent(jButtonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -205,97 +162,6 @@ public class InicioVista extends javax.swing.JFrame {
         jMenuArchivo.add(jMenuItemSalir);
 
         jMenuBar1.add(jMenuArchivo);
-
-        jMenuSistema.setText("Sistema");
-
-        jMenuGeneral.setText("General");
-
-        jMenuItemFormaPago.setText("Formas de pago");
-        jMenuGeneral.add(jMenuItemFormaPago);
-
-        jMenuItemFamilias.setText("Familias");
-        jMenuGeneral.add(jMenuItemFamilias);
-        jMenuGeneral.add(jSeparator2);
-
-        jMenuItemGrupoClientes.setText("Grupo de clientes");
-        jMenuGeneral.add(jMenuItemGrupoClientes);
-
-        jMenuItemGrupoVendedores.setText("Grupo de vendedores");
-        jMenuGeneral.add(jMenuItemGrupoVendedores);
-
-        jMenuItemSeries.setText("Series");
-        jMenuGeneral.add(jMenuItemSeries);
-
-        jMenuItemMonedas.setText("Monedas");
-        jMenuGeneral.add(jMenuItemMonedas);
-        jMenuGeneral.add(jSeparator5);
-
-        jMenuItemUsuarios.setText("Usuarios");
-        jMenuGeneral.add(jMenuItemUsuarios);
-
-        jMenuItemConfiguraciones.setText("Configuraciones");
-        jMenuGeneral.add(jMenuItemConfiguraciones);
-
-        jMenuSistema.add(jMenuGeneral);
-        jMenuSistema.add(jSeparator1);
-
-        jMenuItemClientes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItemClientes.setText("Clientes");
-        jMenuSistema.add(jMenuItemClientes);
-
-        jMenuItemVendedores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItemVendedores.setText("Vendedores");
-        jMenuSistema.add(jMenuItemVendedores);
-
-        jMenuItemTransportes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItemTransportes.setText("Transportes");
-        jMenuSistema.add(jMenuItemTransportes);
-        jMenuSistema.add(jSeparator3);
-
-        jMenuItemPrecios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItemPrecios.setText("Lista de precios");
-        jMenuSistema.add(jMenuItemPrecios);
-
-        jMenuItemProductos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItemProductos.setText("Productos");
-        jMenuSistema.add(jMenuItemProductos);
-        jMenuSistema.add(jSeparator4);
-
-        jMenuItemInformes.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItemInformes.setText("Informes");
-        jMenuSistema.add(jMenuItemInformes);
-
-        jMenuBar1.add(jMenuSistema);
-
-        jMenuFactiuracion.setText("Facturacion");
-
-        jMenuItemFacturas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemFacturas.setText("Facturas");
-        jMenuItemFacturas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemFacturasActionPerformed(evt);
-            }
-        });
-        jMenuFactiuracion.add(jMenuItemFacturas);
-
-        jMenuItemFacturasAnuladas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemFacturasAnuladas.setText("Facturas Anuladas");
-        jMenuItemFacturasAnuladas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemFacturasAnuladasActionPerformed(evt);
-            }
-        });
-        jMenuFactiuracion.add(jMenuItemFacturasAnuladas);
-
-        jMenuItemCobros.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemCobros.setText("Cobros");
-        jMenuFactiuracion.add(jMenuItemCobros);
-
-        jMenuItemRecibos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemRecibos.setText("Recibos");
-        jMenuFactiuracion.add(jMenuItemRecibos);
-
-        jMenuBar1.add(jMenuFactiuracion);
 
         setJMenuBar(jMenuBar1);
 
@@ -321,14 +187,6 @@ public class InicioVista extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItemFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFacturasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemFacturasActionPerformed
-
-    private void jMenuItemFacturasAnuladasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFacturasAnuladasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemFacturasAnuladasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -370,45 +228,17 @@ public class InicioVista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButtonAgregar;
-    public javax.swing.JButton jButtonBuscar;
     public javax.swing.JButton jButtonEliminar;
-    public javax.swing.JButton jButtonLimpiar;
     public javax.swing.JButton jButtonModificar;
     public javax.swing.JLabel jLabelTitulo;
     private javax.swing.JMenu jMenuArchivo;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jMenuFactiuracion;
-    private javax.swing.JMenu jMenuGeneral;
-    public javax.swing.JMenuItem jMenuItemClientes;
-    public javax.swing.JMenuItem jMenuItemCobros;
-    public javax.swing.JMenuItem jMenuItemConfiguraciones;
-    public javax.swing.JMenuItem jMenuItemFacturas;
-    public javax.swing.JMenuItem jMenuItemFacturasAnuladas;
-    public javax.swing.JMenuItem jMenuItemFamilias;
-    public javax.swing.JMenuItem jMenuItemFormaPago;
-    public javax.swing.JMenuItem jMenuItemGrupoClientes;
-    public javax.swing.JMenuItem jMenuItemGrupoVendedores;
-    public javax.swing.JMenuItem jMenuItemInformes;
-    public javax.swing.JMenuItem jMenuItemMonedas;
-    public javax.swing.JMenuItem jMenuItemPrecios;
-    public javax.swing.JMenuItem jMenuItemProductos;
-    public javax.swing.JMenuItem jMenuItemRecibos;
     public javax.swing.JMenuItem jMenuItemSalir;
-    public javax.swing.JMenuItem jMenuItemSeries;
-    public javax.swing.JMenuItem jMenuItemTransportes;
-    public javax.swing.JMenuItem jMenuItemUsuarios;
-    public javax.swing.JMenuItem jMenuItemVendedores;
-    private javax.swing.JMenu jMenuSistema;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     public javax.swing.JPanel jPanelEscritorio;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JPopupMenu.Separator jSeparator3;
-    private javax.swing.JPopupMenu.Separator jSeparator4;
-    private javax.swing.JPopupMenu.Separator jSeparator5;
     public javax.swing.JTable jTable;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.DAO.TareasDAO;
 import Modelo.DAO.UsuariosDAO;
+import Vista.DataView;
 import Vista.InicioVista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +16,7 @@ import java.awt.event.MouseListener;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
@@ -24,13 +26,9 @@ import javax.swing.table.TableModel;
  */
 public class InicioControlador extends Controlador implements ActionListener, MouseListener{
     private static final Logger LOG = Logger.getLogger(InicioControlador.class.getName());
-    
-    private final UsuariosDAO usuario;
-    private final TareasDAO tareas;
     private final InicioVista vista;
-    private JTable jTable;
-    private JLabel jLabel;
-    private JButton agregar, editar, eliminar, limpiar, buscar;
+    private final JLabel jLabel;
+    private final JButton agregar, editar, eliminar;
     private int fila;
     private String id, sql;
 
@@ -41,26 +39,22 @@ public class InicioControlador extends Controlador implements ActionListener, Mo
         jTable = vista.jTable;
         jLabel = vista.jLabelTitulo;
         agregar = vista.jButtonAgregar;
-        buscar = vista.jButtonBuscar;
         eliminar = vista.jButtonEliminar;
         editar = vista.jButtonModificar;
-        limpiar = vista.jButtonLimpiar;
         //Listener
-        buscar.addActionListener(this);
         editar.addActionListener(this);
-        limpiar.addActionListener(this);
         agregar.addActionListener(this);
         eliminar.addActionListener(this);
         jTable.addMouseListener(this);
-        getTabla();
+        jLabel.setText("TAREAS DE: " + usuario.getNombre().toUpperCase());
+        super.getTabla();
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource() == buscar) buscar();
         if(ae.getSource() == editar) editar();
-        if(ae.getSource() == limpiar) limpiar();
         if(ae.getSource() == agregar) agregar();
+        if(ae.getSource() == eliminar) eliminar();
     }
     @Override
     public void mouseClicked(MouseEvent me) {
@@ -83,43 +77,36 @@ public class InicioControlador extends Controlador implements ActionListener, Mo
     @Override
     public void mouseExited(MouseEvent me) {}
 
-    private void buscar() {
-    }
-
     private void editar() {
-
+        DataView view = new DataView(vista);
+        DataControlador c = new DataControlador(view, jTable, usuario, id);
+        view.setVisible(true);
+        view = null;
+        c = null;
     }
 
-    private void limpiar() {
-
+    private void eliminar() {
+        int respuesta = JOptionPane.showConfirmDialog(vista,"¿Desea Eliminar la tarea?");  
+        if(respuesta ==JOptionPane.YES_OPTION){  
+            DataControlador c = new DataControlador(jTable, id, usuario);
+            c = null;
+        }  
     }
-
+    
     private void agregar() {
-
+        DataView view = new DataView(vista);
+        DataControlador c = new DataControlador(view, jTable, usuario);
+        view.setVisible(true);
+        view = null;
+        c = null;
     }
 
     private void mostrar() {
-
+        DataView view = new DataView(vista);
+        DataControlador c = new DataControlador(view, id);
+        view.setVisible(true);
+        view = null;
+        c = null;
     }
-    
-    private void getTabla(){
-        sql = tareas.selectSql("usuario_id="+usuario.getId());
-        condicional();
-        sql += " ORDER BY id DESC";
-        super.loadDataTable(sql, jTable);
-        super.anchoColumnaJTable(jTable, new int[][] { {3,150}});
-        super.quitarColumnaJTable(jTable, new int[] {5,4,0});
-    }    
-    
-    private boolean condicional(){
-/*        if(!busqueda.isEmpty()){
-            sql += " WHERE " + columna + " LIKE '%"+busqueda+"%'";
-            System.out.println(sql);
-            return true;
-        }*/
-        return false;
-    }
-    
-    
     
 }

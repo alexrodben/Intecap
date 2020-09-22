@@ -80,4 +80,8 @@ public class UsuariosRolesDAO implements DAO{
         else return "SELECT * FROM " + tabla + " WHERE " + condicion;
     }
     
+    @Override
+    public String deleteSql(String id) {
+        return "DELETE FROM " + tabla + " WHERE id=" + id;
+    }
 }

@@ -5,6 +5,8 @@
  */
 package Controlador;
 
+import Modelo.DAO.TareasDAO;
+import Modelo.DAO.UsuariosDAO;
 import Modelo.Modelo;
 import java.util.logging.Logger;
 import javax.swing.JTable;
@@ -15,8 +17,18 @@ import javax.swing.JTable;
  */
 public class Controlador{
     private static final Logger LOG = Logger.getLogger(Controlador.class.getName());
-    
+    protected TareasDAO tareas = new TareasDAO();
     protected Modelo modelo = new Modelo();
+    protected UsuariosDAO usuario;
+    protected JTable jTable;
+    
+    protected void getTabla(){
+        String sql = tareas.selectSql("usuario_id="+usuario.getId());
+        sql += " ORDER BY id DESC";
+        loadDataTable(sql, jTable);
+        anchoColumnaJTable(jTable, new int[][] { {3,150}});
+        quitarColumnaJTable(jTable, new int[] {5,4,0});
+    }    
 
     protected void loadDataTable(String sqlString, JTable jTable){
         try{

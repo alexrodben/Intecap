@@ -11,11 +11,11 @@ package Modelo.DAO;
  */
 public class TareasDAO implements DAO{
     private final String tabla = "tbl_tareas";
-    private String id,nombre,descripcion,fecha,usuario_id,estado_id;
+    private String id,titulo,descripcion,fecha,usuario_id,estado_id;
 
-    public TareasDAO(String id, String nombre, String descripcion, String fecha, String usuario_id, String estado_id) {
+    public TareasDAO(String id, String titulo, String descripcion, String fecha, String usuario_id, String estado_id) {
         this.id = id;
-        this.nombre = nombre;
+        this.titulo = titulo;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.usuario_id = usuario_id;
@@ -33,12 +33,12 @@ public class TareasDAO implements DAO{
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getDescripcion() {
@@ -75,17 +75,17 @@ public class TareasDAO implements DAO{
 
     @Override
     public String toString() {
-        return "Tareas{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha + ", usuario_id=" + usuario_id + ", estado_id=" + estado_id + '}';
+        return "Tareas{" + "id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", fecha=" + fecha + ", usuario_id=" + usuario_id + ", estado_id=" + estado_id + '}';
     }
     
     @Override
     public String insertSql(){
-        return "INSERT INTO " + tabla + " (id, nombre, descripcion, fecha, usuario_id, estado_id) VALUES (" + id + ", '" + nombre + "', '" + descripcion + "', '" + fecha + "', '" + usuario_id + "', '" + estado_id + "')";
+        return "INSERT INTO " + tabla + " (id, titulo, descripcion, fecha, usuario_id, estado_id) VALUES (" + id + ", '" + titulo + "', '" + descripcion + "', '" + fecha + "', '" + usuario_id + "', '" + estado_id + "')";
     }
     
     @Override
     public String updateSql(){
-        return "UPDATE INTO " + tabla + " SET id=" + id + ", nombre='" + nombre + "', descripcion='" + descripcion + "', fecha='" + fecha + "', usuario_id='" + usuario_id + "', estado_id='" + estado_id + "' WHERE ";
+        return "UPDATE " + tabla + " SET id=" + id + ", titulo='" + titulo + "', descripcion='" + descripcion + "', fecha='" + fecha + "', usuario_id='" + usuario_id + "', estado_id='" + estado_id + "' WHERE ";
 
     }
 
@@ -93,7 +93,7 @@ public class TareasDAO implements DAO{
     public void loadData(String[] data) {
         int i = 0;
         this.id = data[i]; i++;
-        this.nombre = data[i]; i++;
+        this.titulo = data[i]; i++;
         this.descripcion = data[i]; i++;
         this.fecha = data[i]; i++;
         this.usuario_id = data[i]; i++;
@@ -109,5 +109,10 @@ public class TareasDAO implements DAO{
     public String selectSql(String condicion) {
         if(condicion == null) return "SELECT * FROM " + tabla;
         else return "SELECT * FROM " + tabla + " WHERE " + condicion;
+    }
+
+    @Override
+    public String deleteSql(String id) {
+        return "DELETE FROM " + tabla + " WHERE id=" + id;
     }
 }
